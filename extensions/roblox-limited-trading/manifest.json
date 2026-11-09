@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "W8RLD",
+  "version": "0.2.0",
+  "description": "Read-only Limited valuations, trade research and optional visible-page tools. No account actions.",
+  "permissions": ["storage"],
+  "optional_permissions": ["notifications"],
+  "optional_host_permissions": ["https://w8rldisyours.com/*", "https://friends.roblox.com/*", "https://users.roblox.com/*", "https://groups.roblox.com/*", "https://games.roblox.com/*", "https://apis.roblox.com/*"],
+  "host_permissions": ["https://www.rolimons.com/*", "https://routility.io/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "content_scripts": [{ "matches": ["https://www.roblox.com/home", "https://www.roblox.com/search/users*", "https://www.roblox.com/trades*", "https://www.roblox.com/catalog", "https://www.roblox.com/catalog?*", "https://www.roblox.com/catalog/*", "https://www.roblox.com/users/*/inventory*", "https://www.roblox.com/users/inventory*", "https://www.roblox.com/users/*/profile*", "https://www.roblox.com/users/*/friends*", "https://www.roblox.com/users/friends*", "https://www.roblox.com/my/avatar*", "https://www.roblox.com/communities/*", "https://www.roblox.com/groups/*", "https://www.roblox.com/games/*", "https://www.roblox.com/transactions*", "https://www.roblox.com/my/account*"] , "js": ["content.js"], "css": ["overlay.css"], "run_at": "document_idle" }],
+  "options_page": "options.html"
+}

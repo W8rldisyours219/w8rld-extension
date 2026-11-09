@@ -1,0 +1,471 @@
+/* Browser-safe snapshot of uiKit.ts TERMINAL_SURFACE_COLORS. All selectors
+   belong to extension roots; no Electron bootstrap or remote resources. */
+:is(#w8rld-roblox-limited-overlay, #w8rld-roblox-limited-give, #w8rld-extension-settings) {
+  all: initial;
+  --ink: #f1f1f2; --dim: #a5a5aa; --accent: #d7d7da;
+  --ground: #09090a; --raise: #171719; --rule: rgba(255,255,255,.10);
+  --good: #77d49a; --bad: #ef7777; --warn: #f0c674;
+  box-sizing: border-box;
+  font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink); background: var(--ground); color-scheme: dark;
+  direction: ltr; text-align: left;
+}
+/* Options has no host-page cascade to isolate; let its settings classes win. */
+:is(#w8rld-roblox-limited-overlay, #w8rld-roblox-limited-give) *,
+:is(#w8rld-roblox-limited-overlay, #w8rld-roblox-limited-give) *::before,
+:is(#w8rld-roblox-limited-overlay, #w8rld-roblox-limited-give) *::after,
+:where(#w8rld-extension-settings) *,
+:where(#w8rld-extension-settings) *::before,
+:where(#w8rld-extension-settings) *::after {
+  all: revert; box-sizing: border-box; min-width: 0; font: inherit;
+  color: inherit; letter-spacing: normal; text-transform: none; overflow-wrap: anywhere;
+}
+:is(#w8rld-roblox-limited-overlay, #w8rld-roblox-limited-give)::before,
+:is(#w8rld-roblox-limited-overlay, #w8rld-roblox-limited-give)::after,
+:is(#w8rld-roblox-limited-overlay, #w8rld-roblox-limited-give) *::before,
+:is(#w8rld-roblox-limited-overlay, #w8rld-roblox-limited-give) *::after,
+:where(#w8rld-extension-settings)::before,
+:where(#w8rld-extension-settings)::after,
+:where(#w8rld-extension-settings) *::before,
+:where(#w8rld-extension-settings) *::after { content: none; }
+:is(#w8rld-roblox-limited-overlay, #w8rld-roblox-limited-give, #w8rld-extension-settings) [hidden] { display: none; }
+/* Native flow, one owned comparison. Host colors are resolved locally by the
+   renderer; these semantic mixes reuse the existing shared surface tokens. */
+#w8rld-roblox-limited-overlay {
+  --dim: color-mix(in srgb, var(--ink) 75%, var(--ground));
+  --rule: color-mix(in srgb, var(--ink) 22%, var(--ground));
+  --good: color-mix(in srgb, #77d49a 40%, var(--ink));
+  --bad: color-mix(in srgb, #ef7777 40%, var(--ink));
+  --warn: var(--dim); --accent: var(--ink);
+  display: block; width: 100%; margin: 8px 0 0; padding: 8px 0 0;
+  color: var(--ink); background: transparent; border-top: 1px solid var(--rule);
+  isolation: isolate; container-type: inline-size; color-scheme: inherit;
+}
+#w8rld-roblox-limited-overlay .w8rld-indicators { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; line-height: 1.25; }
+#w8rld-roblox-limited-overlay .w8rld-indicator {
+  position: relative; display: flex; flex-direction: column; align-items: start;
+  gap: 4px; padding: 7px 9px; border: 1px solid var(--rule); border-radius: 6px;
+  background: color-mix(in srgb, var(--ink) 5%, var(--ground));
+}
+#w8rld-roblox-limited-overlay .w8rld-metric-label { color: var(--dim); font-size: 12px; font-weight: 600; }
+#w8rld-roblox-limited-overlay .w8rld-indicator strong { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+#w8rld-roblox-limited-overlay :is([data-sign="positive"], [data-sign="negative"], [data-sign="neutral"])::after {
+  position: absolute; top: 6px; right: 8px; font: 12px/1 system-ui;
+}
+#w8rld-roblox-limited-overlay [data-sign="positive"]::after { content: "↗"; color: var(--good); }
+#w8rld-roblox-limited-overlay [data-sign="negative"]::after { content: "↘"; color: var(--bad); }
+#w8rld-roblox-limited-overlay [data-sign="neutral"][data-comparison="rap"]::after,
+#w8rld-roblox-limited-overlay [data-sign="neutral"][data-comparison="estimatedValue"]::after { content: "→"; color: var(--dim); }
+#w8rld-roblox-limited-overlay [data-sign="positive"] strong { color: var(--good); }
+#w8rld-roblox-limited-overlay [data-sign="negative"] strong { color: var(--bad); }
+#w8rld-roblox-limited-overlay :is([data-sign="partial"], [data-sign="unavailable"]) strong { color: var(--dim); font-weight: 500; }
+#w8rld-extension-settings :is(button, input):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+#w8rld-extension-settings :is(button, input):disabled { opacity: .6; cursor: wait; }
+#w8rld-extension-settings p { margin: 8px 0 0; }
+#w8rld-extension-settings { display: block; min-height: 100vh; margin: 0; padding: 32px 16px; }
+#w8rld-extension-settings main { max-width: 460px; margin: 0 auto; }
+#w8rld-extension-settings main.w8rld-research-wide { max-width: 1100px; }
+#w8rld-extension-settings .w8rld-research-nav { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0 24px; }
+#w8rld-extension-settings .w8rld-research-nav a { color:var(--ink); padding:8px 12px; border:1px solid var(--rule); border-radius:6px; text-decoration:none; }
+#w8rld-extension-settings .w8rld-research-nav a[aria-current=page] { background:var(--raise); border-color:var(--dim); font-weight:650; }
+#w8rld-extension-settings .w8rld-deal-filters { margin-top:20px; }
+#w8rld-extension-settings .w8rld-deal-filters { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr)); gap:14px; align-items:end; }
+#w8rld-extension-settings .w8rld-deal-filters label,.w8rld-history-controls label { display:flex; flex-direction:column; gap:6px; }
+#w8rld-extension-settings :is(.w8rld-deals,.w8rld-calculator) :is(button,input,select,textarea) { box-sizing:border-box; max-width:100%; min-height:40px; padding:8px 10px; background:var(--raise); color:var(--ink); border:1px solid var(--rule); border-radius:6px; }
+#w8rld-extension-settings :is(.w8rld-deals,.w8rld-calculator) :is(button,a):hover { background:var(--raise); border-color:var(--dim); }
+#w8rld-extension-settings :is(.w8rld-deals,.w8rld-calculator) button:disabled { opacity:.55; cursor:default; }
+#w8rld-extension-settings .w8rld-deal-card button[aria-disabled=true] { opacity:.55; cursor:default; }
+#w8rld-extension-settings .w8rld-deal-card button[aria-busy=true] { opacity:.55; cursor:wait; }
+#w8rld-extension-settings .w8rld-deals [role=status]:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+#w8rld-extension-settings :is(button,a,input,select,textarea):focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+#w8rld-extension-settings .w8rld-deal-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr)); gap:18px; }
+#w8rld-extension-settings .w8rld-deal-card { padding:18px; border:1px solid var(--rule); border-radius:10px; background:var(--raise); font-variant-numeric:tabular-nums; }
+#w8rld-extension-settings .w8rld-deal-card { display:flex; flex-direction:column; align-items:stretch; }
+#w8rld-extension-settings .w8rld-deal-card>button,#w8rld-extension-settings .w8rld-deal-card>a { margin-top:auto; }
+#w8rld-extension-settings .w8rld-deal-evidence { margin:4px 0 16px; color:var(--dim); }
+#w8rld-extension-settings .w8rld-deal-evidence summary { padding:6px 0; cursor:pointer; }
+#w8rld-extension-settings .w8rld-deal-evidence summary:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+#w8rld-extension-settings .w8rld-deal-card h2 { font-size:16px; font-weight:650; line-height:1.4; margin:12px 0; overflow-wrap:anywhere; }
+#w8rld-extension-settings .w8rld-deal-card p { font-size:12px; color:var(--dim); margin:8px 0; }
+#w8rld-extension-settings .w8rld-deal-card .w8rld-deal-price { color:var(--ink); font-size:23px; font-weight:700; }
+#w8rld-extension-settings .w8rld-deal-thumb { display:flex; align-items:center; justify-content:center; height:130px; color:var(--dim); background:var(--ground); border-radius:6px; }
+#w8rld-extension-settings .w8rld-deal-thumb img { max-height:120px; max-width:100%; }
+@media(max-width:600px){#w8rld-extension-settings .w8rld-deal-filters{grid-template-columns:repeat(2,minmax(0,1fr))}#w8rld-extension-settings .w8rld-deal-filters>:nth-child(n+3){grid-column:1/-1}#w8rld-extension-settings .w8rld-deal-thumb{height:96px}#w8rld-extension-settings .w8rld-deal-thumb img{max-height:88px}}
+#w8rld-extension-settings .w8rld-calculator :is(label,textarea) { display:block; width:100%; margin:8px 0; }
+#w8rld-extension-settings .w8rld-history-controls,.w8rld-ext3 .w8rld-history-controls { display:flex; flex-wrap:wrap; align-items:end; gap:10px; margin:16px 0; }
+#w8rld-extension-settings .w8rld-history-controls label,.w8rld-ext3 .w8rld-history-controls label { display:flex; flex-direction:column; align-items:stretch; gap:6px; }
+#w8rld-extension-settings .w8rld-history-controls small,.w8rld-ext3 .w8rld-history-controls small { display:block; flex-basis:100%; font-size:12px; line-height:1.5; color:var(--dim); }
+#w8rld-extension-settings .w8rld-brand { font-weight: 750; letter-spacing: .09em; font-size: 12px; color: var(--dim); }
+#w8rld-extension-settings h1 { margin: 8px 0 24px; font-size: 26px; font-weight: 650; letter-spacing: -.03em; }
+#w8rld-extension-settings .w8rld-preference { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid var(--rule); border-radius: 10px; padding: 16px; background: var(--raise); cursor: pointer; }
+#w8rld-extension-settings .w8rld-preference strong { display: block; font-size: 15px; font-weight: 650; }
+#w8rld-extension-settings .w8rld-preference small { display: block; color: var(--dim); margin-top: 4px; font-size: 12px; }
+#w8rld-extension-settings #enabled { appearance: none; position: relative; flex: none; width: 40px; height: 24px; border: 1px solid var(--dim); border-radius: 20px; margin: 0; background: var(--ground); cursor: pointer; }
+#w8rld-extension-settings #enabled::after { content: ""; position: absolute; left: 4px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--dim); }
+#w8rld-extension-settings #enabled:checked { background: var(--accent); border-color: var(--accent); }
+#w8rld-extension-settings #enabled:checked::after { left: 20px; background: var(--ground); }
+#w8rld-extension-settings #enabled:hover { border-color: var(--ink); }
+#w8rld-extension-settings #status { min-height: 20px; margin: 12px 0 20px; color: var(--dim); font-size: 12px; }
+#w8rld-extension-settings #status[role="alert"] { color: var(--warn); }
+#w8rld-extension-settings .w8rld-note { border-top: 1px solid var(--rule); padding-top: 16px; color: var(--dim); font-size: 12px; }
+#w8rld-extension-settings .w8rld-note strong { font-weight: 600; color: var(--ink); }
+@media (forced-colors: active) {
+  #w8rld-roblox-limited-overlay { --ink: CanvasText !important; --ground: Canvas !important; --dim: CanvasText; --good: CanvasText; --bad: CanvasText; border-color: CanvasText; color: CanvasText; background: Canvas; }
+  #w8rld-roblox-limited-overlay .w8rld-indicator { color: CanvasText; background: Canvas; border-color: CanvasText; }
+  #w8rld-extension-settings #enabled:checked { background: Highlight; }
+  #w8rld-extension-settings #enabled:checked::after { background: HighlightText; }
+}
+/* EXT.3 regions inherit the native surface. No host-wide layout rules. */
+.w8rld-ext3 {
+  --ink: CanvasText; --ground: Canvas;
+  --dim: color-mix(in srgb, var(--ink) 72%, var(--ground));
+  --rule: color-mix(in srgb, var(--ink) 20%, var(--ground));
+  --good: color-mix(in srgb, #77d49a 40%, var(--ink));
+  --bad: color-mix(in srgb, #ef7777 40%, var(--ink));
+  box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: start;
+  gap: 4px 8px; margin-block: 6px; padding: 4px 0;
+  color: var(--ink); background: transparent; font: 13px/1.4 system-ui, sans-serif;
+  text-align: start; overflow-wrap: anywhere; min-width: 0; max-width: 100%; isolation: isolate;
+}
+.w8rld-ext3 *, .w8rld-ext3 *::before, .w8rld-ext3 *::after { box-sizing: border-box; min-width: 0; font: inherit; color: inherit; overflow-wrap: anywhere; text-transform: none; letter-spacing: normal; }
+.w8rld-ext3 [hidden], #w8rld-extension-settings [hidden] { display: none !important; }
+.w8rld-item-values { display: flex; flex-direction: column; gap: 2px; margin: 5px 0 0; padding: 0; font-size: 12px; line-height: 1.4; }
+.w8rld-item-value { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 6px; width: 100%; font-variant-numeric: tabular-nums; }
+.w8rld-item-value > :last-child { white-space: nowrap; }
+.w8rld-item-value .text-robux-tile { display: inline-flex; align-items: center; gap: 3px; font-variant-numeric: tabular-nums; }
+.w8rld-item-value :is(.w8rld-dollar-icon,.w8rld-robux-icon) { width: 14px; height: 14px; flex: none; }
+.w8rld-item-values > .w8rld-item-value { margin: 0; padding: 0; font: inherit; line-height: inherit; }
+.w8rld-proof-icon { display: inline-block; flex: none; width: 16px; height: 16px; margin-right: 6px; vertical-align: text-bottom; }
+/* Native caption placement adapted from RoUtility, Copyright (c) 2026 RoUtility
+   (MIT; THIRD_PARTY_NOTICES.txt). All native fixed-height wrappers must follow
+   the annotated caption. The original link, RAP and controls stay in place. */
+.trade-item-card:has(.w8rld-item-values),
+.trade-item-card :is(.grid-item-container,.item-card-container):has(.w8rld-item-values),
+.item-cards:has(> .trade-item-card .w8rld-item-values) { height: auto !important; }
+/* Current native inventory uses fixed 230px containers / 240px list items.
+   Retain its responsive card widths; let annotated rows grow together. Only
+   lists containing W8RLD values participate, so cleanup restores native layout. */
+#inventory-container .hlist.item-cards:has(> .item-card .w8rld-item-values) { display: flex; flex-wrap: wrap; align-items: stretch; }
+#inventory-container .hlist.item-cards:has(> .item-card .w8rld-item-values) > .item-card { display: flex; height: auto !important; }
+#inventory-container .hlist.item-cards:has(> .item-card .w8rld-item-values) > .item-card > .item-card-container { height: auto !important; }
+.w8rld-ext3 .w8rld-value-label { color: var(--dim); flex: none; }
+/*! RoUtility ui.js::cardTags and styles/routility.css::routility-card-tag,
+ * routility-row-pill, routility-tp-*, routility-search-* (MIT).
+ * Copyright (c) 2026 RoUtility. Branded/third-party glyphs excluded. */
+.w8rld-ext3 .w8rld-tag { display: inline-flex; align-items: center; width: fit-content; height: 18px; border: 0; border-radius: 9999px; padding: 0 6px; font-size: 11px; font-weight: 700; line-height: 18px; color: var(--ink); background: rgba(127,127,127,.18); }
+.w8rld-ext3 .w8rld-tag[data-flag="projected"] { color: var(--color-content-inverse-emphasis,#fff); background: var(--color-system-alert,#c72d28); }
+.w8rld-ext3 .w8rld-tag[data-flag="rare"] { color: #fff; background: rgba(0,0,0,.55); }
+.w8rld-item-identity-tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0 8px; padding: 0; }
+.w8rld-card-tags { position: absolute; top: 6px; left: 6px; z-index: 2; display: flex; flex-wrap: wrap; gap: 4px; }
+/* Direct cardTags thumbnail anchor from RoUtility core/ui.js and stylesheet
+   (MIT, Copyright (c) 2026 RoUtility). Passive labels retain native link input. */
+.item-card-thumb-container:has(> .w8rld-card-tags) { position: relative; }
+.w8rld-ext3.w8rld-card-tags { margin: 0; padding: 0; pointer-events: none; }
+.w8rld-ext3 :is(button,input,select,summary,a) { max-width: 100%; }
+.w8rld-ext3 :is(button,input,select) { border: 1px solid var(--rule); border-radius: 5px; padding: 5px 7px; color: var(--ink); background: var(--ground); }
+.w8rld-ext3 :is(button,summary,a) { cursor: pointer; }
+.w8rld-ext3 :is(button,summary,a):hover { text-decoration: underline; }
+.w8rld-ext3 :is(button,input,select,summary,a):focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.w8rld-ext3 :is(button,input,select):disabled { opacity: .55; cursor: default; }
+.w8rld-ext3 :is(small,time) { color: var(--dim); font-size: 12px; }
+.w8rld-ext3 small, .w8rld-ext3 details { flex-basis: 100%; }
+.w8rld-ext3 p { margin: 4px 0; }
+.w8rld-trade-row-metrics { display: flex; flex-direction: column; align-items: stretch; gap: 4px; min-width: 0; width: 100%; max-width: 100%; margin: 3px 0; padding: 0; font-size: 12px; line-height: 1.4; }
+.w8rld-difference { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; font-variant-numeric: tabular-nums; }
+.w8rld-difference > :last-child { text-align: end; }
+.w8rld-trade-row-metrics .w8rld-difference { display: inline-flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 0 5px; box-sizing: border-box; min-width: 0; min-height: 22px; max-width: 100%; padding: 0 8px; border-radius: 11px; font-size: 12px; font-weight: 700; line-height: 22px; background: rgba(127,127,127,.18); }
+.w8rld-trade-row-metrics .w8rld-difference > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.w8rld-trade-row-metrics .w8rld-difference > :last-child { display: inline-flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 3px; }
+.w8rld-difference-amount, .w8rld-difference-percent { white-space: nowrap; }
+.w8rld-trade-row-metrics .w8rld-difference[data-sign="positive"] { color: #3ddc84; background: rgba(2,183,87,.14); }
+.w8rld-trade-row-metrics .w8rld-difference[data-sign="negative"] { color: #ff7a75; background: rgba(226,68,63,.14); }
+.light-theme .w8rld-trade-row-metrics .w8rld-difference[data-sign="positive"] { color: #01803d; background: rgba(2,183,87,.12); }
+.light-theme .w8rld-trade-row-metrics .w8rld-difference[data-sign="negative"] { color: #c72d28; background: rgba(226,68,63,.11); }
+.w8rld-trade-row-metrics .w8rld-difference > :is(.w8rld-value-label,:last-child) { color: inherit; }
+/* RoUtility mounts row indicators inside trade-row-container. Use normal flow
+   with a bounded column rather than absolute pills over long native names. */
+.trade-row-container:has(> .w8rld-trade-row-metrics) { display: grid; grid-template-columns: minmax(0,1fr); align-items: center; gap: 2px 8px; }
+.trade-row-container:has(> .w8rld-trade-row-metrics) > .trade-row-details { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+/* previewSide's side/item hierarchy, adapted to compact in-flow row strips.
+   Indicators never occupy native names, controls or the scrollbar gutter. */
+.w8rld-row-items, .w8rld-row-differences { display: flex; flex-wrap: wrap; align-items: center; gap: 3px 6px; max-width: 100%; }
+.w8rld-row-items { justify-content: space-between; }
+.w8rld-row-side { display: flex; flex-wrap: wrap; align-items: center; gap: 3px; }
+.w8rld-row-side > .w8rld-value-label { font-size: 10px; margin-right: 2px; }
+.w8rld-row-item { display: inline-flex; }
+.w8rld-ext3 .w8rld-row-item .w8rld-preview-item { width: 22px; height: 22px; border-radius: 4px; }
+.w8rld-row-item .w8rld-preview-quantity { font-size: 9px; line-height: 11px; }
+.w8rld-row-demand { font-variant-numeric: tabular-nums; font-size: 11px; }
+.w8rld-trade-row-metrics > time { font-size: 11px; }
+.w8rld-search-item[data-w8rld-search-selected] { background: color-mix(in srgb,var(--ink) 10%,transparent); }
+.w8rld-ext3 [data-sign="positive"] > :last-child { color: var(--good); }
+.w8rld-ext3 [data-sign="negative"] > :last-child { color: var(--bad); }
+.w8rld-ext3 [data-sign="unavailable"] { color: var(--dim); }
+.w8rld-trade-preview {
+  position: fixed; left: 8px; top: 8px; z-index: 1000; pointer-events: none;
+  display: flex; flex-direction: column; gap: 10px;
+  max-width: calc(100vw - 16px); margin: 0; padding: 12px 14px; border: 1px solid var(--rule); border-radius: 8px;
+  background: var(--ground); color: var(--ink); box-shadow: 0 6px 20px color-mix(in srgb, var(--ink) 12%, transparent);
+  font-size: 12px; line-height: 1.4;
+}
+.w8rld-preview-side { display: flex; flex-direction: column; gap: 6px; }
+.w8rld-preview-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; }
+.w8rld-preview-head > strong { font-size: 12px; font-weight: 500; color: var(--dim); }
+.w8rld-preview-head > .w8rld-preview-total { font-weight: 600; }
+.w8rld-preview-thumbnails { display: flex; flex-wrap: wrap; gap: 4px; }
+.w8rld-preview-item-detail { display: flex; flex: 1 1 100%; gap: 8px; align-items: center; min-width: 0; max-width: 100%; }
+.w8rld-preview-item-detail > .w8rld-preview-item { flex: none; }
+.w8rld-preview-item-body { flex: 1; min-width: 0; }
+.w8rld-preview-item-body > strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; font-weight: 500; }
+.w8rld-preview-item-body .w8rld-item-values { flex-direction: row; flex-wrap: wrap; gap: 1px 8px; margin: 2px 0 0; padding: 0; font-size: 11px; }
+.w8rld-preview-item-body .w8rld-item-value { width: auto; gap: 3px; justify-content: flex-start; }
+.w8rld-preview-item-body .w8rld-value-label { font-size: 10px; }
+.w8rld-ext3 .w8rld-preview-item { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; max-width: 100%; min-width: 0; border-radius: 8px; overflow: hidden; background: rgba(127,127,127,.14); }
+.w8rld-native-thumbnail { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; overflow: hidden; }
+.w8rld-native-thumbnail :is(canvas,img) { display: block; width: 100%; height: 100%; object-fit: contain; }
+.w8rld-preview-quantity { position: absolute; right: 0; bottom: 0; padding: 0 2px; background: var(--ground); color: var(--ink); line-height: 16px; }
+.w8rld-preview-total { font-variant-numeric: tabular-nums; }
+.w8rld-preview-differences { display: grid; gap: 3px; padding-top: 8px; border-top: 1px solid var(--rule); }
+.w8rld-item-research { display: block; clear: both; min-width: 0; max-width: 100%; margin: 12px 0; padding: 0; border: 0; font-size: 13px; line-height: 1.4; }
+.w8rld-item-status { display: block; margin: 12px 0 0; padding: 0; font-size: 16px; line-height: 1.4; }
+.w8rld-item-research dl { margin: 0; padding: 0; }
+/* RoUtility nativeRow/textValue, price-pair and similarCard layout (MIT).
+   A restrained wrapping grid condenses the native rows; no new panel surface. */
+.w8rld-item-research .w8rld-item-primary { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.w8rld-item-research .w8rld-item-primary > div { display: flex; flex: 1 0 auto; flex-direction: column; align-items: flex-start; gap: 2px; min-width: 0; max-width: 100%; margin: 0; padding: 0; }
+.w8rld-item-research :is(dt,dd) { float: none; width: auto; max-width: 100%; min-width: 0; margin: 0; padding: 0; font-size: inherit; line-height: inherit; white-space: normal; overflow-wrap: anywhere; }
+.w8rld-item-research dt { color: var(--ink); opacity: .75; font-size: 11px; font-weight: 500; text-transform: uppercase; }
+.w8rld-item-research dd { display: flex; align-items: center; gap: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.w8rld-item-research .w8rld-item-primary dd { font-size: 14px; font-weight: 600; }
+.w8rld-item-research .w8rld-item-secondary { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; }
+.w8rld-item-research .w8rld-item-secondary > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 6px; min-width: 0; margin: 0; padding: 0; }
+.w8rld-item-research .w8rld-item-secondary dt { font-size: 12px; text-transform: none; }
+.w8rld-reseller-comparison { display: block; margin-top: 4px; color: var(--dim); font-size: 12px; line-height: 1.4; }
+.w8rld-hover-facts { width: 100%; margin: 4px 0 0; padding: 0; font-size: 12px; }
+.w8rld-hover-facts > div { display: flex; justify-content: space-between; gap: 12px; }
+.w8rld-hover-facts dt { color: var(--dim); }
+.w8rld-hover-facts dd { margin: 0; font-variant-numeric: tabular-nums; }
+.w8rld-price-usd { display: flex; align-items: center; gap: 5px; clear: both; width: fit-content; max-width: 100%; margin: 4px 0 6px; padding: 0; font-size: 20px; line-height: 1.4; font-weight: 600; font-variant-numeric: tabular-nums; }
+.w8rld-price-usd small { font-size: 11px; font-weight: 400; }
+.w8rld-dollar-icon { display: inline-block; width: 16px; height: 16px; flex: none; color: currentColor; vertical-align: middle; }
+.w8rld-price-usd .w8rld-dollar-icon { width: 18px; height: 18px; }
+.w8rld-robux-icon { flex: none; vertical-align: middle; }
+.w8rld-price-usd > .w8rld-value-label { display: none; }
+.w8rld-search { display: flex; flex-wrap: wrap; }
+.w8rld-search > div { display: flex; flex-wrap: wrap; gap: 4px 10px; width: 100%; }
+.w8rld-search input { flex: 1 1 140px; }
+.w8rld-portfolio-totals { gap: 8px; margin-block: 8px; padding: 0; }
+.w8rld-portfolio-totals .w8rld-profile-values { display: flex; flex-wrap: wrap; gap: 6px 20px; width: 100%; margin: 0; padding: 0; }
+.w8rld-profile-values > div { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; max-width: 100%; }
+.w8rld-profile-values dt { color: var(--dim); font-size: 11px; font-weight: 500; }
+.w8rld-profile-values dd { display: flex; align-items: center; gap: 4px; margin: 0; white-space: nowrap; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.w8rld-portfolio-totals > details { width: 100%; }
+/* MIT RoUtility profile.js::pillSet / routility-value-row: adjacent compact
+   pills. Visible-copy coverage replaces upstream full-inventory assumptions. */
+.w8rld-profile-summary .w8rld-profile-values { gap: 6px; }
+.w8rld-profile-summary .w8rld-profile-values > div { min-width: 0; box-sizing: border-box; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 8px; background: var(--color-state-hover, transparent); }
+.w8rld-profile-summary .w8rld-profile-values small { color: var(--dim); font-size: 11px; }
+.w8rld-profile-summary .w8rld-profile-values dd { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.w8rld-preview-status { padding: 10px 12px; }
+.w8rld-preview-status small { overflow-wrap: anywhere; }
+/* Native search placement follows src/features/search/search.js (RoUtility,
+   MIT). Keep Roblox's entries and visibility owner; add one bounded group. */
+.w8rld-native-search { padding: 8px 12px; border-top: 1px solid var(--rule); max-height: 320px; overflow-y: auto; }
+.w8rld-native-search > strong { display: block; font-weight: 600; margin-bottom: 6px; }
+.w8rld-native-search [aria-label="Public Limited suggestions"] > .w8rld-ext3 { display: block; margin-block: 8px; }
+.w8rld-native-search .w8rld-item-values { flex-direction: row; flex-wrap: wrap; gap: 2px 10px; }
+.w8rld-native-search .w8rld-item-value { width: auto; }
+.w8rld-native-search .w8rld-public-suggestion { padding-block: 6px; color: inherit; }
+.w8rld-native-search a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.w8rld-native-search [aria-label="Limited suggestions"] > .w8rld-ext3 { margin-block: 6px; }
+.w8rld-search-item { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 6px 0; color: inherit; text-decoration: none; }
+.w8rld-search-item > .w8rld-native-thumbnail { flex: none; width: 58px; height: 58px; border-radius: 8px; background: rgba(208,217,251,.12); }
+.w8rld-search-item-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.w8rld-search-item-body > strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 18px; font-weight: 500; line-height: 22px; }
+.w8rld-search-item-body > small { font-size: 12px; }
+.w8rld-search-item-body > small:has(.w8rld-tag) { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.w8rld-native-search .w8rld-search-item-body .w8rld-item-values { margin: 0; padding: 0; font-size: 11px; gap: 1px 8px; }
+.w8rld-native-search .w8rld-search-item-body .w8rld-item-value { justify-content: flex-start; gap: 3px; }
+.w8rld-native-search .w8rld-search-item-body .w8rld-tag { height: 16px; line-height: 16px; font-size: 10px; }
+#w8rld-roblox-limited-overlay .w8rld-side-totals { display: block; font-size: 12px; line-height: 1.4; color: var(--dim); font-variant-numeric: tabular-nums; }
+#w8rld-roblox-limited-overlay [data-comparison="demand"] strong { display: grid; gap: 4px; font-size: 13px; font-weight: 500; line-height: 1.4; }
+/* The marker is applied only to the verified existing native row container.
+   Keep its scrollbar inside the viewport; no wheel/touch event interception. */
+[data-w8rld-scroll] { max-height: max(120px, calc(var(--w8rld-list-max) - var(--w8rld-preview-space, 0px))) !important; min-height: 0; overflow-y: auto !important; scrollbar-width: auto !important; scrollbar-gutter: stable; touch-action: pan-y; }
+/* Restore the browser's own scrollbar even when the host hides WebKit parts. */
+[data-w8rld-scroll]::-webkit-scrollbar { display: revert !important; width: revert !important; height: revert !important; }
+.w8rld-trade-preview.w8rld-preview-inline { position: static; width: 100%; max-height: none; overflow: visible; margin-block: 8px; box-shadow: none; }
+/*! RoUtility itemcard.js::render and routility-item-card/ic-thumb/ic-tag,
+ * MIT, Copyright (c) 2026 RoUtility. Keep the compact native header and rows,
+ * with W8RLD text metrics, no branded assets and no remote stylesheet. */
+.w8rld-item-preview { position: fixed; z-index: 1000; pointer-events: none; display: block; width: 270px; max-width: calc(100vw - 16px); padding: 14px 16px; margin: 0; border: 1px solid var(--rule); border-radius: 8px; background: var(--ground); }
+.w8rld-item-preview-body { display: flex; flex-direction: column; gap: 8px; }
+.w8rld-item-preview-head { display: flex; align-items: center; gap: 8px; }
+.w8rld-item-preview-thumb { flex: none; width: 44px; height: 44px; border-radius: 8px; background: rgba(127,127,127,.14); }
+.w8rld-item-preview-identity { flex: 1; min-width: 0; }
+.w8rld-item-preview-identity > strong { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-weight: 600; }
+.w8rld-item-preview-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.w8rld-item-preview .w8rld-item-values { margin: 0; }
+.w8rld-item-preview .w8rld-hover-facts { margin: 0; }
+/*! Read-only wearing tiles: avatar.js::renderWearing and av-wearing-grid/tile,
+ * MIT, Copyright (c) 2026 RoUtility. Provider-covered equipped assets only. */
+.w8rld-avatar-value-tiles { display: grid; grid-template-columns: repeat(auto-fill,minmax(min(100%,64px),1fr)); gap: 8px; width: 100%; list-style: none; margin: 0; padding: 0; }
+.w8rld-avatar-value-tiles > li { min-width: 0; }
+.w8rld-avatar-value-tiles a { display: flex; flex-direction: column; gap: 4px; text-decoration: none; }
+.w8rld-avatar-value-tiles .w8rld-native-thumbnail { width: 100%; height: auto; aspect-ratio: 1; border-radius: 8px; background: rgba(127,127,127,.14); }
+.w8rld-avatar-value-tiles a > span:last-of-type { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 11px; }
+.w8rld-ext3.w8rld-similar-panel { --raise: color-mix(in srgb, var(--ink) 20%, var(--ground)); display: block; position: static; clear: both; width: 100%; min-width: 0; max-width: 100%; margin: 24px 0; padding: 0; border: 0; color: var(--ink); font-size: 14px; line-height: 1.4; }
+.w8rld-similar-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.w8rld-similar-header > h2 { margin: 0; padding: 0; font: inherit; font-size: 20px; font-weight: 700; }
+.w8rld-similar-header > button { flex: none; font: inherit; padding: 4px 8px; }
+.w8rld-similar-panel .w8rld-similar-results { display: flex; flex-wrap: nowrap; gap: 12px; width: 100%; max-width: 100%; min-width: 0; overflow-x: auto; overflow-y: hidden; padding: 4px 2px 12px; scrollbar-width: auto; scroll-snap-type: x proximity; }
+.w8rld-similar-entry { flex: 0 0 128px; width: 128px; min-width: 0; scroll-snap-align: start; }
+.w8rld-similar-entry :is(.item-card,.item-card-container,.item-card-caption) { width: 100%; min-width: 0; max-width: 100%; height: auto; margin: 0; padding: 0; }
+.w8rld-similar-results .w8rld-similar-item { display: block; width: 128px; padding: 0; color: inherit; text-decoration: none; }
+.w8rld-similar-item:hover .w8rld-similar-name { text-decoration: underline; }
+.w8rld-similar-item:focus-visible,.w8rld-similar-results:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; border-radius: 4px; }
+.w8rld-similar-thumbnail { position: relative; display: grid; place-items: center; width: 128px; height: 128px; border-radius: 8px; overflow: hidden; background: var(--raise); color: var(--dim); }
+.w8rld-similar-thumbnail .item-card-thumb-container-inner { width: 100%; height: 100%; }
+.w8rld-similar-thumbnail .item-card-thumb-container-inner > div { width: 100%; height: 100%; }
+.w8rld-similar-thumbnail :is(canvas,img) { width: 128px; height: 128px; object-fit: contain; }
+.w8rld-similar-results .w8rld-similar-item .w8rld-similar-name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; white-space: normal; text-overflow: ellipsis; height: 40px; margin-top: 6px; font-size: 14px; line-height: 20px; font-weight: 600; }
+.w8rld-similar-value { display: grid; gap: 2px; margin: 4px 0 0; font-size: 12px; font-variant-numeric: tabular-nums; }
+.w8rld-similar-value > div { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px; }
+.w8rld-similar-value dt { flex: none; margin: 0; color: var(--dim); font-size: 11px; font-weight: 400; }
+.w8rld-similar-value dd { display: flex; align-items: center; gap: 3px; min-width: 0; max-width: 100%; margin: 0; white-space: normal; overflow-wrap: anywhere; font-size: 12px; }
+.w8rld-similar-value [data-usd-method="routility"] dd { font-size: 16px; font-weight: 700; }
+.w8rld-search > div { max-height: 280px; overflow-y: auto; }
+.w8rld-item-research > details { margin-top: 8px; }
+[data-w8rld-mask], [data-w8rld-mask] *, [data-w8rld-serial-hidden] { visibility: hidden !important; }
+#w8rld-extension-settings main { max-width: 640px; }
+#w8rld-extension-settings fieldset { margin: 20px 0; padding: 0; border: 0; min-width: 0; }
+#w8rld-extension-settings legend { font-size: 16px; font-weight: 650; margin-bottom: 8px; }
+#w8rld-extension-settings .w8rld-preference { margin: 6px 0; padding: 12px; }
+#w8rld-extension-settings .w8rld-field { display: block; margin: 12px 0 4px; font-size: 12px; color: var(--dim); }
+#w8rld-extension-settings .w8rld-field :is(input,select) { display: block; margin-top: 4px; width: 100%; }
+#w8rld-extension-settings :is(input[type="search"],input[type="text"],input[type="number"],select) { max-width: 100%; width: 100%; border: 1px solid var(--rule); border-radius: 6px; padding: 9px; color: var(--ink); background: var(--raise); }
+#w8rld-extension-settings .w8rld-switch { appearance: none; position: relative; flex: none; width: 40px; height: 24px; border: 1px solid var(--dim); border-radius: 20px; margin: 0; background: var(--ground); cursor: pointer; }
+#w8rld-extension-settings .w8rld-switch::after { content: ""; position: absolute; left: 4px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--dim); }
+#w8rld-extension-settings .w8rld-switch:checked { background: var(--accent); border-color: var(--accent); }
+#w8rld-extension-settings .w8rld-switch:checked::after { left: 20px; background: var(--ground); }
+#w8rld-extension-settings .w8rld-switch:hover { border-color: var(--ink); }
+#w8rld-extension-settings :is(select,input,button):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (forced-colors: active) { .w8rld-ext3 { --ink: CanvasText !important; --ground: Canvas !important; --dim: CanvasText; --rule: CanvasText; --good: CanvasText; --bad: CanvasText; } }
+@media (forced-colors: active) { .w8rld-ext3 .w8rld-tag,.w8rld-trade-row-metrics .w8rld-difference { border: 1px solid CanvasText; color: CanvasText !important; background: Canvas !important; } }
+/* Native W8RLD Settings. Foundation tokens follow the reviewed Roblox surface. */
+.w8rld-settings-open > :not(.w8rld-native-settings) { display:none !important; }
+.w8rld-native-settings { color:var(--color-content-emphasis,inherit); font:inherit; min-width:0; padding:0 8px 20px; }
+.w8rld-native-settings h2 { font-size:24px; margin:0 0 20px; }
+.w8rld-native-settings > input[type=search] { box-sizing:border-box; width:100%; margin-bottom:16px; }
+.w8rld-settings { display:grid; grid-template-columns:minmax(120px,170px) minmax(0,1fr); gap:20px; min-width:0; }
+.w8rld-settings-categories { display:flex; flex-direction:column; gap:2px; align-self:start; }
+.w8rld-settings-categories button { display:flex; align-items:center; gap:8px; text-align:left; border:0; background:transparent; color:inherit; border-radius:6px; padding:8px; font:inherit; cursor:pointer; }
+/*! RoUtility src/settings/settings.js::CAT_SVG and styles/routility.css
+ * .routility-set-cat-icon svg, MIT, Copyright (c) 2026 RoUtility.
+ * W8RLD: compact monochrome navigation, native surface for icon cutouts. */
+.w8rld-settings-icon { --w8rld-icon-cut:var(--color-surface-100,Canvas); display:block; width:20px; height:20px; flex:none; pointer-events:none; }
+.w8rld-settings-icon * { pointer-events:none; }
+.w8rld-settings-categories button[aria-pressed=true] { background:var(--color-state-hover, color-mix(in srgb,currentColor 12%,transparent)); font-weight:700; }
+.w8rld-settings-content { min-width:0; }
+.w8rld-settings-content fieldset { padding:0; margin:0; min-width:0; border:0; }
+.w8rld-settings-content legend { font-size:20px; font-weight:700; padding:0 0 12px; }
+.w8rld-settings .w8rld-preference { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid color-mix(in srgb,currentColor 15%,transparent); margin:0; }
+.w8rld-settings .w8rld-preference>span:first-child { flex:1; min-width:0; }
+.w8rld-settings strong { font-size:14px; font-weight:600; }
+.w8rld-settings small { display:block; font-size:12px; line-height:1.4; opacity:.78; margin-top:3px; }
+.w8rld-settings :is(input,select,button),.w8rld-native-settings>input { font:inherit; color:inherit; accent-color:var(--color-system-contrast,#335fff); }
+.w8rld-settings input[type=checkbox] { appearance:none; flex:none; width:36px; height:22px; border:1px solid color-mix(in srgb,currentColor 50%,transparent); border-radius:20px; background:color-mix(in srgb,currentColor 12%,transparent); position:relative; cursor:pointer; margin:0; }
+.w8rld-settings input[type=checkbox]::after { content:''; position:absolute; width:16px; height:16px; left:2px; top:2px; border-radius:50%; background:currentColor; }
+.w8rld-settings input[type=checkbox]:checked { background:var(--color-system-contrast,#335fff); color:white; border-color:transparent; }
+.w8rld-settings input[type=checkbox]:checked::after { left:16px; background:var(--color-surface-100,Canvas); }
+.w8rld-settings input:disabled { opacity:.4; cursor:default; }
+.w8rld-settings .w8rld-preference { flex-wrap:wrap; }
+.w8rld-settings .w8rld-preference>span:first-child { flex-basis:140px; overflow-wrap:anywhere; }
+.w8rld-settings .w8rld-preference .w8rld-switch { box-sizing:border-box; }
+@media (forced-colors: active) {
+  .w8rld-settings input[type=checkbox],#w8rld-extension-settings .w8rld-settings input[type=checkbox] { border:1px solid ButtonText; background:Canvas; color:ButtonText; forced-color-adjust:none; }
+  .w8rld-settings input[type=checkbox]:checked,#w8rld-extension-settings .w8rld-settings input[type=checkbox]:checked { border-color:Highlight; background:Highlight; color:HighlightText; }
+  .w8rld-settings input[type=checkbox]:disabled,#w8rld-extension-settings .w8rld-settings input[type=checkbox]:disabled { border-color:GrayText; color:GrayText; opacity:1; }
+  .w8rld-settings input[type=checkbox]:checked::after { background:HighlightText; }
+  #w8rld-extension-settings .w8rld-settings input[type=checkbox]::after { background:currentColor; }
+  .w8rld-settings-categories button[aria-pressed=true] { outline:2px solid Highlight; outline-offset:-2px; }
+}
+.w8rld-settings .w8rld-reset { font-size:11px; padding:4px; background:transparent; color:inherit; border:0; text-decoration:underline; cursor:pointer; }
+.w8rld-settings .w8rld-field { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:12px 0; }
+.w8rld-settings .w8rld-field :is(input,select) { min-width:0; max-width:100%; width:150px; margin-left:auto; }
+.w8rld-settings .w8rld-field select { width:auto; flex:0 1 auto; }
+.w8rld-settings :is(button,input:not([type=checkbox]),select),.w8rld-native-settings>input { box-sizing:border-box; border-radius:6px; border:1px solid color-mix(in srgb,currentColor 30%,transparent); background:var(--color-surface-100,Canvas); color:inherit; padding:7px 10px; max-width:100%; }
+.w8rld-settings button { cursor:pointer; }
+.w8rld-settings .w8rld-support-diagnostics { min-width:0; }
+.w8rld-settings .w8rld-support-diagnostics .w8rld-row-actions { display:flex; flex-wrap:wrap; gap:8px; }
+.w8rld-settings .w8rld-support-diagnostics textarea { box-sizing:border-box; width:100%; max-width:100%; min-width:0; resize:vertical; font:inherit; color:inherit; background:var(--color-surface-100,Canvas); border:1px solid color-mix(in srgb,currentColor 30%,transparent); border-radius:6px; padding:8px; }
+.w8rld-settings .w8rld-support-diagnostics :is(button,textarea):focus-visible { outline:2px solid currentColor; outline-offset:2px; }
+.w8rld-settings .w8rld-support-diagnostics button:hover:not(:disabled) { background:var(--color-state-hover,color-mix(in srgb,currentColor 12%,transparent)); }
+.w8rld-settings .w8rld-support-diagnostics button:disabled { opacity:.5; cursor:default; }
+.w8rld-settings-content fieldset>div:not(.w8rld-preference),.w8rld-settings-content details { margin:12px 0; overflow-wrap:anywhere; }
+.w8rld-settings-content fieldset>div>button { margin:4px 8px 4px 0; }
+.w8rld-settings :focus-visible,.w8rld-native-settings>input:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
+.w8rld-settings [hidden] { display:none !important; }
+.w8rld-settings pre { white-space:pre-wrap; overflow-wrap:anywhere; font:12px/1.5 ui-monospace,monospace; }
+@media(max-width:900px) { .w8rld-settings { grid-template-columns:minmax(0,1fr); gap:12px; } .w8rld-settings-categories { flex-direction:row; overflow-x:auto; max-width:100%; padding:2px; } .w8rld-settings-categories button { white-space:nowrap; flex:none; } }
+#w8rld-extension-settings main { max-width:920px; }
+#w8rld-extension-settings .w8rld-settings .w8rld-preference { background:transparent; border:0; border-bottom:1px solid var(--rule); border-radius:0; padding:12px 0; }
+#w8rld-extension-settings .w8rld-settings fieldset { margin:0; }
+#w8rld-extension-settings .w8rld-settings .w8rld-field { display:flex; color:inherit; font-size:14px; }
+#w8rld-extension-settings .w8rld-settings button:hover:not(:disabled) { background:var(--raise); }
+.w8rld-settings .w8rld-settings-categories button { border:0; background:transparent; }
+.w8rld-settings .w8rld-settings-categories button[aria-pressed=true] { background:var(--color-state-hover,color-mix(in srgb,currentColor 12%,transparent)); }
+.w8rld-settings .w8rld-reset { border:0; background:transparent; padding:4px; font-size:11px; }
+.w8rld-settings .w8rld-permission { flex-basis:100%; margin-left:auto; font-size:12px; }
+.w8rld-calculator { margin:12px 0; font:inherit; }
+.w8rld-calculator summary { cursor:pointer; font-weight:600; }
+.w8rld-calculator label { display:inline-flex; flex-direction:column; vertical-align:top; gap:6px; max-width:100%; margin:8px 12px 8px 0; }
+.w8rld-calculator textarea { resize:vertical; width:230px; max-width:100%; min-height:56px; font:inherit; color:inherit; background:var(--ground,Canvas); border:1px solid currentColor; border-radius:6px; padding:8px; }
+.w8rld-calculator [role=status]>div { margin:8px 0; }
+.w8rld-profile-preview { position:fixed; z-index:1050; max-width:min(280px,calc(100vw - 16px)); padding:10px 12px; border:1px solid color-mix(in srgb,var(--ink,currentColor) 25%,transparent); border-radius:6px; color:var(--ink,CanvasText); background:var(--ground,Canvas); box-shadow:0 4px 16px #0003; overflow-wrap:anywhere; pointer-events:none; }
+.w8rld-profile-preview small { display:block; margin-top:4px; font-size:12px; }
+.w8rld-value-warning { display:block; padding-top:8px; color:var(--color-content-emphasis,inherit); }
+.w8rld-public-facts { margin:8px 0; font:inherit; }
+.w8rld-public-facts dl { display:flex; flex-wrap:wrap; gap:8px 20px; margin:0; }
+.w8rld-public-facts dl>div { display:flex; gap:6px; align-items:baseline; }
+.w8rld-public-facts dt { font-size:12px; opacity:.8; }
+.w8rld-public-facts dd { margin:0; font-size:14px; font-weight:600; }
+.w8rld-public-facts details { flex-basis:100%; min-width:0; }
+.w8rld-public-facts details p { white-space:pre-wrap; overflow-wrap:anywhere; max-height:320px; overflow-y:auto; }
+.w8rld-item-history { margin-top:8px; max-width:100%; font:inherit; font-size:12px; }
+.w8rld-item-history[hidden] { display:none; }
+.w8rld-item-history > summary { cursor:pointer; }
+.w8rld-history-change { margin-left:8px; font-variant-numeric:tabular-nums; }
+.w8rld-item-history summary:focus-visible { outline:2px solid currentColor; outline-offset:2px; }
+.w8rld-item-history svg { display:block; width:100%; height:120px; }
+.w8rld-item-history ul { padding-left:20px; font-size:12px; }
+/* RoUtility communities.js::placeFinder and styles/routility.css cm-find /
+   avatar.js::renderWearing statistics; MIT, Copyright (c) 2026 RoUtility.
+   W8RLD keeps native colors, bounded local results, and compact subtotal rows. */
+.w8rld-member-search { display:flex; flex-direction:column; gap:12px; width:100%; }
+.w8rld-member-field { display:flex; align-items:center; gap:8px; min-width:0; border:1px solid var(--color-stroke-default,currentColor); border-radius:8px; padding:8px 12px; }
+.w8rld-member-field input { min-width:0; width:100%; border:0; outline:0; background:transparent; color:inherit; font:inherit; }
+.w8rld-member-field:focus-within { outline:2px solid currentColor; outline-offset:2px; }
+.w8rld-member-results a.w8rld-member-public { display:flex; align-items:center; flex-wrap:wrap; gap:8px 16px; padding:8px 0; }
+.w8rld-member-public>div { min-width:0; flex:1 1 120px; overflow-wrap:anywhere; }
+.w8rld-member-role { font-size:12px; overflow-wrap:anywhere; }
+.w8rld-member-results { display:flex; flex-direction:column; gap:8px; max-height:240px; overflow-y:auto; width:100%; margin:0; padding:0 0 12px; border-bottom:1px solid var(--color-stroke-muted,rgba(127,127,127,.2)); }
+.w8rld-member-results a { display:block; padding:4px 2px; text-decoration:none; }
+.w8rld-member-results a:hover { text-decoration:underline; }
+.w8rld-member-results a:focus-visible { outline:2px solid currentColor; outline-offset:-2px; }
+.w8rld-saved-comparison { display:flex; flex-wrap:wrap; align-items:center; gap:4px 8px; padding-block:8px; border-bottom:1px solid var(--color-stroke-muted,rgba(127,127,127,.2)); }
+.w8rld-saved-comparison small { flex-basis:100%; }
+.w8rld-portfolio-totals[data-portfolio-scope="equipped"] { width:100%; }
+.w8rld-avatar-values-head { font-weight:600; margin-bottom:8px; }
+/* avatar.js::renderWearing / routility-av-wearing-stat, adapted without branding
+   assets. Native typography and colors; wrapping replaces hover expansion. */
+.w8rld-portfolio-totals[data-portfolio-scope="equipped"] .w8rld-profile-values { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(80px,100%),1fr)); gap:8px; width:100%; margin:0 0 8px; }
+.w8rld-portfolio-totals[data-portfolio-scope="equipped"] .w8rld-profile-values>div { display:flex; flex-direction:column; gap:2px; min-width:0; padding:8px 10px; border:1px solid var(--color-stroke-muted,rgba(127,127,127,.16)); border-radius:8px; background:var(--color-state-hover,rgba(127,127,127,.07)); }
+.w8rld-portfolio-totals[data-portfolio-scope="equipped"] .w8rld-profile-values dd { font-size:14px; font-weight:700; overflow-wrap:anywhere; }
+.w8rld-portfolio-totals[data-portfolio-scope="equipped"]>small { display:block; font-size:12px; overflow-wrap:anywhere; }
+.w8rld-copy-ownership { display:flex; flex-direction:column; gap:4px; min-width:0; padding-block:6px; overflow-wrap:anywhere; }
+.w8rld-copy-ownership strong { font-size:12px; }
+.w8rld-copy-ownership small { display:block; font-size:11px; }
+.w8rld-copy-ownership ul { padding:0; margin:0; list-style:none; font-size:11px; }
+.w8rld-copy-ownership [data-ownership="missing"] { color:var(--color-system-error,var(--bad,#ef7777)); font-weight:600; }
+.w8rld-copy-ownership [data-ownership="unverified"] { color:var(--color-content-default,currentColor); }

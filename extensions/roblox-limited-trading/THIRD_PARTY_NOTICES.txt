@@ -1,0 +1,408 @@
+W8RLD Roblox companion — third-party source attribution
+
+Reviewed upstream: https://github.com/insane/routility-extension
+Commit: 403c75ed81f297e82ada6fccf084ae3fc2249def
+
+Passive loaded-trade valuation in src/companion.ts further adapts
+src/features/trading/trades.js::pump/loadDetail/annotateRow: bounded queued
+detail reads shared with previews, one compact metric mount per verified row.
+W8RLD keeps private details in document memory, validates both participants and
+the native ordered prefix, expires evidence, and never performs trade actions.
+Public catalog search retains search.js::row/thumbImg's item identity and
+thumbnail lifecycle; account Privacy masking does not anonymize public items.
+
+Shared trade keyboard/search focus and scrolling in src/companion.ts further
+adapt src/features/trading/trades.js::onTradeKeys. W8RLD focuses without native
+selection, defers previews until the initiating scroll settles and cancels on
+disposal or focus changes. Upstream click/account-changing behavior is excluded.
+
+Trade preview positioning in src/nativeUi.ts::previewPosition further adapts
+src/features/trading/trades.js::openPreview/place. W8RLD tries either side of
+the entire native list, keeps viewport/control collision checks and retains
+its in-flow fallback. No upstream keyboard selection or account action is used.
+
+Compact visible-profile summary pills in src/companion.ts and overlay.css adapt
+src/features/profile/profile.js::pillSet/ensureInjected and the adjacent
+routility-value-row/routility-split-pill layout. W8RLD keeps its own visible-only
+subtotal labels, per-provider copy coverage, existing currency icons, native
+social-row anchor and cleanup. No upstream inventory fetch or branded asset is
+used. Trade preview status shares the existing reviewed placement/lifecycle.
+
+Trade side strips and visible per-item preview rows in src/nativeUi.ts and
+src/companion.ts adapt src/features/trading/trades.js::previewSide/annotateRow
+and styles/routility.css::routility-tp-thumb/routility-row-pill. Native profile
+summary placement retains profile.js::findPillRow; its label/value metrics use
+the compact core/content.js::nativeRow hierarchy. Search title, subtitle, price
+and classification content shares one link following search.js::row and its
+search-text/search-title/search-sub styles. Inventory captions retain the native
+price owner from inventory.js and core/content.js. W8RLD adds wrapping in normal
+flow, per-side weighted demand, independent observation coverage, and privacy
+and cancellation guards. Monetary icons reuse the attributed dollar glyph
+below and native Roblox Robux sprite classes. No additional asset is copied.
+
+Native search input retention, explicit link activation and thumbnail rows follow
+search.js::row/onKey/paint. Compact wrapping trade badges retain the pinned
+stylesheet's dimensions, spacing and light/dark sign colors. W8RLD supplies
+its own master-switch gate, observation validation and opt-in labelled RAP
+fallback; no upstream trademarks or separately restricted assets are added.
+
+Native thumbnail classification placement in src/nativeAdaptation.ts,
+src/content.ts and src/companion.ts directly adapts core/ui.js::cardTags and its card-tags CSS.
+src/nativeUi.ts adapts items/itemcard.js::render's thumbnail/name/badge header
+and compact fact hierarchy, and avatar/avatar.js::renderWearing's wearing grid.
+src/companion.ts retains trading/trades.js::previewSide's side-heading totals.
+The corresponding rules in overlay.css adapt routility-item-card, ic-thumb,
+card-tags and av-wearing-grid/tile. W8RLD supplies independent provider metrics,
+timestamp expiry, canonical catalog links and native input/cleanup guards.
+No logos, branded price glyphs, fake worn items, RAP-as-Value fallback, new
+thumbnail API, equip/remove controls or account-changing behavior is copied.
+
+EXT.5.7 adapts communities.js::findMember, findRow and placeFinder into
+src/publicFacts.ts and src/companion.ts: exact public identity/role projection,
+native filter placement, compact name/username/rank rows and loading lifecycle.
+W8RLD replaces username POST with its existing credentialless search GET, keeps
+strict optional grants, memory-only results, bounded budgets and cancellation,
+and excludes account actions and upstream thumbnail/branding requests.
+
+src/nativeSettings.ts retains settings.js's menu/pane/history placement pattern.
+W8RLD's document_idle integration uses the recognized native Info route with an
+owned query flag, without importing upstream's early router interception hooks.
+
+Native placement and search lifecycle patterns in src/nativeAdaptation.ts,
+src/nativeSearch.ts, src/publicSearch.ts, src/nativeTradeRead.ts, src/nativeSettings.ts, src/publicFactUi.ts and overlay.css are adapted from src/settings/settings.js, src/features/trading/trades.js,
+src/features/profile/profile.js, src/features/search/search.js and
+styles/routility.css. W8RLD supplies its own branding, rendering, valuation,
+bounded lifecycle and read-only provider transport. The recognized native
+Robux header selector in src/companion.ts follows the same pinned stylesheet's
+streamer rules; W8RLD excludes billing fields and account actions. The narrowly
+scoped native trade reader uses automatic browser authentication for two GET
+endpoint shapes only, without reading credentials or persisting private history.
+
+EXT.4.4 additionally adapts src/features/inventory/invsearch.js (initials,
+shortMatch, render) into src/nativeAdaptation.ts and src/companion.ts;
+src/core/content.js (nativeRow, markDeals, injectItemRows) into src/nativeUi.ts
+and src/companion.ts; and src/settings/settings.js (row, toggle, offParent,
+paint, apply) into src/settingsView.ts and src/nativeSettings.ts. Cursor paging
+in src/nativeTradeRead.ts follows trades.js::ensureList, with W8RLD's stricter
+identity checks and bounded gesture-only loading. No upstream private-history
+storage, account-changing code, unrestricted fetch wrapper or backend is copied.
+
+Section breadcrumbs/memory and carousel playback intent handling in
+src/pagePreferences.ts adapt src/features/avatar/avatar.js::currentSection,
+setupRemember and src/features/games/games.js::stopTrailers. The native Members
+modal placement in src/companion.ts adapts communities.js::placeFinder.
+Automatic native clicks, equip actions, authenticated member lookups and
+upstream global polling are excluded.
+
+src/itemHistory.ts adapts the public history loader in
+src/background/background.js::getHistory and point use in
+src/core/content.js::loadChange. Hoarded-share presentation follows
+src/core/content.js::injectItemRows. W8RLD supplies its own collapsed accessible
+chart, strict projection, cancellation and request budgets; the history never
+becomes a current valuation or account record.
+
+MIT License
+
+EXT.5.6 extends the communities.js::placeFinder/findRow adaptation and its
+cm-find flex/result-list styles in src/companion.ts and overlay.css. It uses
+only loaded public native links; no upstream username POST, memberships,
+private ranks or administrative APIs. Avatar native placement and compact
+statistic hierarchy adapt avatar.js::wearHost/renderWearing and the
+av-wearing-stats rules; only explicit visible equipped markers are admitted.
+Trade focus navigation extends trades.js::onTradeKeys visible-row/dialog
+guards, omitting upstream automatic row clicks. Saved comparison CRUD has no
+suitable upstream implementation and retains W8RLD's local service/contracts.
+
+Copyright (c) 2026 RoUtility
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+src/nativeIcons.ts directly reuses the following category SVG artwork from
+src/settings/settings.js::CAT_SVG: home, trading, items, browsing, inventory,
+profiles, search, friends, communities, games, notifications, streamer, themes,
+calculator and menu. Copyright (c) 2026 RoUtility; MIT as reproduced above.
+Geometry is unchanged. W8RLD constructs static SVG nodes without HTML parsing,
+renames the cutout variable, and uses decorative semantics with existing text
+labels. settingsView.ts mounts one icon inside each existing category button;
+overlay.css adapts the display/size rule from styles/routility.css's
+.routility-set-cat-icon svg for compact native-colored navigation. No background
+gradient, branded asset or native Robux symbol is copied.
+
+Except for the attributed Apache-2.0 dollar glyph below, no upstream vendor
+libraries, fonts, third-party icons, badge images, logos, page-world scripts
+or account-action code are included. Upstream notices list
+three.js and flag-icons (MIT), Draco (Apache-2.0), and Roblox
+Wiki badge images (CC BY-SA 3.0); those assets are excluded from this adaptation.
+This license does not grant rights to Roblox/RoUtility marks, hosted APIs or
+provider data. Existing provider permissions and access policies remain separate.
+
+EXT.5.4 directly adapts src/core/content.js::similarCard's native Roblox card,
+thumbnail and caption tree into src/nativeUi.ts::similarItemCard;
+src/features/search/search.js::row into nativeUi.ts::limitedSearchRow; and
+src/features/trading/trades.js::previewSide's heading/thumbnail hierarchy into
+src/companion.ts. src/core/ui.js::cardTags supplies the text-badge markup in
+src/presentation.ts::itemTags, also placed beside the native item heading.
+The corresponding routility-row-pill, routility-pill-win/overpay,
+routility-trade-preview, routility-tp-thumb/foot, routility-card-tag(s) and
+routility-search-* CSS rules are adapted in overlay.css. W8RLD keeps its
+normal-flow row placement, guarded preview positioning, accessible labels,
+strict freshness, privacy and independently labelled RAP/Value/USD data.
+The original RoUtility logo is excluded. The dollar glyph is attributed below.
+
+src/nativeIcons.ts::proofImageIcon reuses the camera SVG geometry from
+styles/routility.css::.routility-calc-icon-camera (Copyright (c) 2026 RoUtility,
+MIT above). W8RLD changes black stroke to currentColor, constructs static SVG
+nodes instead of a CSS data URI, and uses it beside the existing proof control.
+The fifteen previously adapted category SVGs remain unchanged. No new font,
+branded artwork, binary image, third-party dependency or permission is added.
+
+EXT.5.5 adapts src/core/ui.js::shows at nativeUi.ts::listMetrics so the existing
+RAP/Value/USD switches also govern native trade rows and previews. The same
+file's showTip supplies centered/clamped geometry in nativeUi.ts::hoverPosition,
+shared by item and public-profile previews with W8RLD's native-control exclusion.
+src/features/profile/hovercard.js::SKIP supplies native header/search/modal
+exclusions; none of its identity, presence, friends or authenticated requests is
+copied. src/features/search/search.js::row supplies the shared title/subtitle
+tree for both Limited and public player/experience results; its paint function
+supplies active-result scrolling, retaining W8RLD's existing real-link focus.
+W8RLD adds IME guards, strict evidence expiry, bounded explicit retry and cleanup.
+All sixteen previously reused SVGs remain; this increment adds no new asset.
+
+EXT.5.8 adapts src/features/avatar/avatar.js::loadWearing in nativeAvatarRead.ts
+and renderWearing / styles/routility.css::routility-av-wearing-stat in the native
+avatar subtotal rows. Only the exact equipped-list GET and compact statistic
+layout are retained. W8RLD adds bounds, expiry, cancellation and independent
+shared-provider coverage. No equip/remove behavior, fake assets, logos or
+RAP-as-curated-Value fallback is copied. No new graphic or dependency is added.
+
+EXT.6.2 adapts core/content.js::nativeRow/textValue/placePriceBlock/similarCard/
+valueChange, core/ui.js::cardTags/usdIcon, and styles/routility.css price-pair,
+card price, card-tag and 130px history styling. W8RLD keeps native Roblox
+Robux sprites, its own brand, strict USD admission and cancellable lifecycle.
+Demand/Trend retain upstream text labels and W8RLD's verified 1-5 mapping;
+no demand/trend artwork or classifications are fabricated.
+
+Material Icons attach_money - Copyright Google LLC, Apache License 2.0.
+Source: https://github.com/google/material-design-icons
+Dollar path from the pinned upstream styles/routility.css::.routility-usd-ic.
+Modified presentation: CSS mask replaced by static inline SVG construction in
+src/nativeIcons.ts::dollarIcon; geometry and stroke preserved. No logos copied.
+The license below covers this glyph only; all RoUtility components retain MIT.
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.

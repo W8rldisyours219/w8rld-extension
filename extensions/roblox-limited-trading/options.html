@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>W8RLD · Extension settings</title>
+  <link rel="stylesheet" href="overlay.css">
+</head>
+<body id="w8rld-extension-settings">
+  <main>
+    <div class="w8rld-brand">W8RLD</div>
+    <nav class="w8rld-research-nav" aria-label="W8RLD tools"><a href="#settings">Settings</a><a href="#deals">Limited Deals</a><a href="#calculator">Trade calculator</a></nav>
+    <div id="research" hidden></div>
+    <div id="settings-body">
+    <h1>W8RLD Extension settings</h1>
+    <label class="w8rld-preference" for="enabled">
+      <span><strong>Enable inline analysis</strong><small>Across all supported Roblox trade pages</small></span>
+      <input id="enabled" type="checkbox" role="switch" aria-describedby="status">
+    </label>
+    <p id="status" role="status" aria-live="polite">Loading preference…</p>
+    <label class="w8rld-field" for="settings-search">Find a setting</label>
+    <input id="settings-search" type="search" placeholder="Search settings" maxlength="100">
+    <div id="features"></div>
+    <p id="feature-status" role="status" aria-live="polite"></p>
+    <details class="w8rld-note">
+      <summary>Sources and read-only limits</summary>
+      <p>Compares RAP and Rolimon’s Value. Robux and other components are not fully verified. No trade actions or cookie access.</p>
+      <p>Differences are receiving minus giving. Percentages use a fully covered, positive giving total. Partial or expired evidence cannot support a complete difference.</p>
+      <p>$ uses Routility's USD estimates. These are provider estimates, not guaranteed sale proceeds. RAP, Value and asking prices are never converted into USD.</p>
+      <p>Demand shows W8RLD’s Value-weighted 1–5 score for each offer. Supporting evidence keeps item ratings and copy counts. This is not an official provider trade score; missing demand or weights make coverage Partial.</p>
+      <p>Rolimon’s supplies RAP, curated Value and item demand. Routility independently supplies USD estimates. Unvalued items and missing demand ratings remain Unavailable.</p>
+      <p>Catalogs refresh on demand after 15 minutes. Requests omit credentials and page details. Public catalogs, cooldowns and feature preferences are stored locally. Trades, partners, transactions and account information are never saved.</p>
+      <p>New tools use visible, supported page records. Inventory totals and trade searches cover loaded or manually reviewed items only. Unknown layouts and unavailable fields add no invented data. Notifications run only when a watched item is viewed; there is no background account monitoring.</p>
+    </details>
+    </div>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

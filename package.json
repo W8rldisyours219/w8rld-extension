@@ -1,0 +1,15 @@
+{
+  "name": "w8rld-extension",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node scripts/roblox-extension-package.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.0"
+  }
+}
